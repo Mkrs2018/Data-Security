@@ -1,7 +1,6 @@
 <?php
 require './mailer/class.phpmailer.php';
 	$mysqli = new mysqli('localhost', 'root', 'r', 'secure');
-
 //$mysqli = new mysqli('localhost', 'mreuser1_mits', 'mits@123','mreuser1_healthvault');
 if ($mysqli->connect_errno) {
     echo "Sorry, this website is experiencing problems.";
@@ -22,7 +21,6 @@ var_dump($password);
 var_dump($activationcode);
 */
 $hashpassword = password_hash($password, PASSWORD_DEFAULT);
-
 $query="insert into unverified_users(email,password,status,activationcode) values('$email','$hashpassword','$status','$activationcode')";
 if (!$result = $mysqli->query($query)) {
     echo "Sorry, the website is experiencing problems.";
